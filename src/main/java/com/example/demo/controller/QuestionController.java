@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.dto.QuestionDTO;
 import com.example.demo.dto.QuestionThreadDTO;
 import com.example.demo.dto.ReplyDTO;
-import com.example.demo.exception.RecordNotFoundException;
 import com.example.demo.service.QuestionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,7 @@ import java.util.List;
 @RequestMapping("/questions")
 public class QuestionController {
 
-    final QuestionService service;
+    private final QuestionService service;
 
     public QuestionController(QuestionService service) {
         this.service = service;
@@ -35,7 +34,7 @@ public class QuestionController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public QuestionThreadDTO getQuestionThreadById(@PathVariable("id") Long id) throws RecordNotFoundException {
+    public QuestionThreadDTO getQuestionThreadById(@PathVariable("id") Long id) {
         return service.getQuestionThreadById(id);
     }
 
@@ -47,7 +46,7 @@ public class QuestionController {
 
     @PostMapping("/{id}/reply")
     @ResponseStatus(HttpStatus.CREATED)
-    public ReplyDTO createReply(@RequestBody @Valid ReplyDTO reply, @PathVariable("id") Long id) throws RecordNotFoundException {
+    public ReplyDTO createReply(@RequestBody @Valid ReplyDTO reply, @PathVariable("id") Long id) {
         return service.createReply(reply, id);
     }
 

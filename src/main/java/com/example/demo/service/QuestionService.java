@@ -30,7 +30,7 @@ public class QuestionService {
                 .collect(Collectors.toList());
     }
 
-    public QuestionThreadDTO getQuestionThreadById(Long id) throws RecordNotFoundException {
+    public QuestionThreadDTO getQuestionThreadById(Long id) {
         Question question = repository.findById(id)
                 .orElseThrow(RecordNotFoundException::new);
         return converter.convertToQuestionThreadDTO(question);
@@ -41,7 +41,7 @@ public class QuestionService {
         return converter.convertToReplyDTO(repository.save(question));
     }
 
-    public ReplyDTO createReply(ReplyDTO replyDTO, Long id) throws RecordNotFoundException {
+    public ReplyDTO createReply(ReplyDTO replyDTO, Long id) {
         Reply reply = converter.convertToReply(replyDTO);
         Question question = repository.findById(id)
                 .orElseThrow(RecordNotFoundException::new);

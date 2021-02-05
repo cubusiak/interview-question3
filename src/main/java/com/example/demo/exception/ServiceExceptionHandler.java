@@ -2,7 +2,6 @@ package com.example.demo.exception;
 
 import com.example.demo.dto.ErrorResponseDTO;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-@Order(1)
 @Slf4j
 class ServiceExceptionHandler {
 
@@ -29,11 +27,23 @@ class ServiceExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({RecordNotFoundException.class})
     @ResponseBody
-    public ErrorResponseDTO handleRecordNotFoundException(RecordNotFoundException ex) {
-        log.error(ex.getMessage());
+    public ErrorResponseDTO handleRecordNotFoundException() {
+        String message = "No record exist.";
+        log.error(message);
         return ErrorResponseDTO.builder()
                 .code(HttpStatus.NOT_FOUND.toString())
-                .message("No record exist.")
+                .message(message)
+                .build();
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler({Exception.class})
+    @ResponseBody
+    public ErrorResponseDTO handleException(Exception ex) {
+        log.error(ex.getMessage());
+        return ErrorResponseDTO.builder()
+                .code(HttpStatus.INTERNAL_SERVER_ERROR.toString())
+                .message("An internal error occurred.")
                 .build();
     }
 
