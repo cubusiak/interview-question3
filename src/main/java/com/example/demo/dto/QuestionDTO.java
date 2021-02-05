@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Question DTO, handles data about question record.
+ */
 @Getter
 @Builder
 @NoArgsConstructor

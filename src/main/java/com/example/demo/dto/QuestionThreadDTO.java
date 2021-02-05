@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * QuestionThread DTO, handles data about question thread record.
+ */
 @Getter
 @Builder
 @AllArgsConstructor

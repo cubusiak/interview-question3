@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * ThreadReply DTO, handles data about a single reply to the message record.
+ */
 @Getter
 @Builder
 @AllArgsConstructor

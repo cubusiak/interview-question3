@@ -9,10 +9,20 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Custom Exception Handler, logs the error message to the console;
+ * provides custom error code and message for MethodArgumentNotValidException, RecordNotFoundException and Exception.
+ */
 @ControllerAdvice
 @Slf4j
 class ServiceExceptionHandler {
 
+    /**
+     * Custom Method Argument Not Valid Exception, logs the error message to the console and provides custom error response.
+     *
+     * @param ex MethodArgumentNotValidException
+     * @return ErrorResponseDTO
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseBody
@@ -24,6 +34,11 @@ class ServiceExceptionHandler {
                 .build();
     }
 
+    /**
+     * Custom Record Not Found Exception, logs the error message to the console and provides custom error response.
+     *
+     * @return ErrorResponseDTO
+     */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({RecordNotFoundException.class})
     @ResponseBody
@@ -36,6 +51,12 @@ class ServiceExceptionHandler {
                 .build();
     }
 
+    /**
+     * Custom Exception, logs the error message to the console and provides custom error response.
+     *
+     * @param ex Exception
+     * @return ErrorResponseDTO
+     */
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
     @ResponseBody

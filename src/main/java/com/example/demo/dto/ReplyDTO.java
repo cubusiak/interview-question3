@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Reply DTO, handles data about reply record.
+ */
 @Getter
 @Builder
 @NoArgsConstructor
