@@ -14,6 +14,10 @@ Business Documentation for the Interview question
 see it properly.
 3. Use file [postman_collection.json](postman_collection.json) in order to import the API collection to the postman.  
 
+## Code documentation
+1. Every class and method is described in the code. 
+2. Generated Java Doc is available here: [JavaDoc](java-doc/index.html).
+
 ## How to start the application?
 
 1. Build it using `mvn clean install`
