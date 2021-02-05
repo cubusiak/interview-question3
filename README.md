@@ -8,7 +8,7 @@ Business Documentation for the Interview question
 
 ## API documentation
 
-1. API documentation was written using the RAML language. All the schema and the examples are located in the file [api.raml](api_specification/api.raml). 
+1. API documentation was written using the RAML language. All the schema and the examples are located in the file [api.raml](api-specification/api.raml). 
    
 2. From RAML files the HTML documentation was generated. It is available in the file [api_documentation.html](api_documentation.html). Open it in the browser to
 see it properly.
