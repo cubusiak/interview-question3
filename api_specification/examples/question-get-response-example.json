@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "author": "Daniel",
+  "message": "Text",
+  "replies": [
+    {
+      "id": 5,
+      "author": "Reply author",
+      "message": "Message reply text"
+    }
+  ]
+}

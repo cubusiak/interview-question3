@@ -8,9 +8,11 @@ Business Documentation for the Interview question
 
 ## API documentation
 
-1. API documentation is available in the file [api_documentation.html](api_documentation.html). Open it in the browser to
+1. API documentation was written using the RAML language. All the schema and the examples are located in the file [api.raml](api_specification/api.raml). 
+   
+2. From RAML files the HTML documentation was generated. It is available in the file [api_documentation.html](api_documentation.html). Open it in the browser to
 see it properly.
-2. Use file [postman_collection.json](postman_collection.json) in order to import the API collection to the postman.  
+3. Use file [postman_collection.json](postman_collection.json) in order to import the API collection to the postman.  
 
 ## How to start the application?
 

@@ -1,0 +1,97 @@
+#%RAML 1.0
+title: Demo project specification
+version: v1
+mediaType:  application/json
+protocols: [ HTTP, HTTPS ]
+
+/questions:
+  get:
+    description: Get all questions
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/questions-get-response.json
+            example: !include examples/questions-get-response-example.json
+      400:
+        description: BadRequest
+        body:
+          application/json:
+            schema: !include schemas/error.json
+            example: !include examples/400.json
+      500:
+        description: InternalServerError
+        body:
+          application/json:
+            schema: !include schemas/error.json
+            example: !include examples/500.json
+  post:
+    description: Create question
+    body:
+      application/json:
+        schema: !include schemas/question-post-request.json
+        example: !include examples/question-post-request-example.json
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/question-post-response.json
+            example: !include examples/question-post-response-example.json
+      400:
+        description: BadRequest
+        body:
+          application/json:
+            schema: !include schemas/error.json
+            example: !include examples/400.json
+      500:
+        description: InternalServerError
+        body:
+          application/json:
+            schema: !include schemas/error.json
+            example: !include examples/500.json
+  /{id}:
+    get:
+      description: Get specific question
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/question-get-response.json
+              example: !include examples/question-get-response-example.json
+        400:
+          description: BadRequest
+          body:
+            application/json:
+              schema: !include schemas/error.json
+              example: !include examples/400.json
+        500:
+          description: InternalServerError
+          body:
+            application/json:
+              schema: !include schemas/error.json
+              example: !include examples/500.json
+  /{id}/reply:
+    post:
+      description: Create reply to the specific question
+      body:
+        application/json:
+          schema: !include schemas/question-reply-post-request.json
+          example: !include examples/question-reply-post-request-example.json
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/question-reply-post-response.json
+              example: !include examples/question-reply-post-response-example.json
+        400:
+          description: BadRequest
+          body:
+            application/json:
+              schema: !include schemas/error.json
+              example: !include examples/400.json
+        500:
+          description: InternalServerError
+          body:
+            application/json:
+              schema: !include schemas/error.json
+              example: !include examples/500.json
